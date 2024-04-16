@@ -91,3 +91,24 @@ TEST(PasswordTest, lower_case_pass)
   bool actual = my_password.has_mixed_case("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
   ASSERT_EQ(false, actual);
 }
+
+TEST(PasswordTest, all_space_pass)
+{
+  Password my_password;
+  bool actual = my_password.has_mixed_case("          ");
+  ASSERT_EQ(false, actual);
+}
+
+TEST(PasswordTest, all_symbol_pass)
+{
+  Password my_password;
+  bool actual = my_password.has_mixed_case("!!!!!!!!!!");
+  ASSERT_EQ(false, actual);
+}
+
+TEST(PasswordTest, mixed_with_symbol_pass)
+{
+  Password my_password;
+  bool actual = my_password.has_mixed_case("!!!!aA    ");
+  ASSERT_EQ(true, actual);
+}

@@ -22,3 +22,23 @@ int Password::count_leading_characters(string phrase){
   }
   return repetition;
 }
+bool Password::has_mixed_case(string phrase){
+ bool upper=false;
+ bool lower=false;
+  for(int i=0; i<phrase.length();i++){
+      if(phrase.at(i) >='A' && phrase.at(i) <= 'Z'){
+        upper = true;
+      } 
+      if(phrase.at(i) >='a' && phrase.at(i) <= 'z'){
+        lower = true;
+      }
+     }
+  if(upper == true && lower == true){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+
