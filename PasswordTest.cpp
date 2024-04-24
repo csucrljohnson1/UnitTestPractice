@@ -120,3 +120,12 @@ my_password.set("aAaaaaaa");
 bool actual = my_password.authenticate("aAaaaaaa");
 ASSERT_EQ(true, actual);
 }
+
+TEST(PasswordTest, set_auth_test_false)
+{
+Password my_password;
+my_password.set("aAaaaaaa");
+my_password.set("Aaaaaaaa");
+bool actual = my_password.authenticate("aAaaaaaa");
+ASSERT_EQ(false, actual);
+}
