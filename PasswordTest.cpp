@@ -112,3 +112,11 @@ TEST(PasswordTest, mixed_with_symbol_pass)
   bool actual = my_password.has_mixed_case("!!!!aA    ");
   ASSERT_EQ(true, actual);
 }
+
+TEST(PasswordTest, set_auth_test)
+{
+Password my_password;
+my_password.set("aAaaaaaa");
+bool actual = my_password.authenticate("aAaaaaaa");
+ASSERT_EQ(true, actual);
+}
